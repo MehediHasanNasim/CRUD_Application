@@ -3,7 +3,25 @@
 
 {% block body_block %}
 
-    <h1 class="p-4 bg-warning text-dark text-center mt-5">Welcome from Nasim</h1>
+<h1 class="p-4 bg-warning text-dark text-center mt-0">Welcome from Nasim</h1>
+<h1>Student list</h1>
+
+<ul class="p-4 bg-dark text-white mt=0">
+
+{% if student_list %}
+
+{% for student in student_list  %}
+
+<li> <a href="{% url 'first_app:student_info' student_id=student.id %}"> {{student.first_name}} {{student.last_name}} </a> </li>
+    
+{% endfor %}
+    
+{% else %}
+
+<h1>No student</h1>  
+{% endif %}
+    
+</ul>
     
 {% endblock %}
     
